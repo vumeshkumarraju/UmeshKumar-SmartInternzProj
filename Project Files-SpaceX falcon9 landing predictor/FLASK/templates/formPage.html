@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form</title>
+    
+    <link href="/static/style.css" rel="stylesheet">
+    <style>
+      body{
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto" href="{{url_for('homePage')}}">Home</a></li>
+          <li><a class="nav-link scrollto" href="{{url_for('profile')}}" target="_blank">Data Visualization</a></li>
+          <li><a class="nav-link scrollto" href="https://drive.google.com/file/d/1CQVWwDtD_c4Z9nFk7tnO-kvap_mTVZ-i/view?usp=sharing" target="_blank">Python Notebook</a></li>
+          <li><a class="nav-link scrollto" href="https://github.com/vumeshkumarraju/SpaceX-Falcon9-First-Stage-Landing-Success-Predictor.git" target="_blank">Github Link</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header>
+
+    <div class="testbox">
+    <form action="/predict" method="post">
+      
+      <div class="item">
+        <p>Select The Booster version</p>
+        <select required name="booster_version">
+          <option value="0">B4</option>
+          <option value="1">B5</option>
+          <option value="2">FT</option>
+          <option value="3">v1.0</option>
+          <option value="4">v1.1</option>
+        </select>
+      </div>
+      <div class="item">
+        <p>Select The Launch Site</p>
+        <select required name="launch_site">
+          <option value="0">CCAFS LC-40</option>
+          <option value="1">CCAFS SLC-40</option>
+          <option value="2">KSC LC-39A</option>
+          <option value="3">VAFB SLC-4E</option>
+        </select>
+      </div>
+
+      <div class="item">
+        <p>Select The Orbit</p>
+        <select required name="orbit">
+          <option value="0">GTO</option>
+          <option value="1">HEO</option>
+          <option value="2">LEO</option>
+          <option value="3">LEO (ISS)</option>
+          <option value="4">MEO</option>
+          <option value="5">Polar LEO</option>
+          <option value="6">SSO </option>
+          <option value="7">ub-orbital</option>
+        </select>
+      </div>
+      <div class="item">
+        <p>Payload Mass</p>
+        <input type="number" name="payload_mass" placeholder="0.00 KG"/>
+      </div>
+
+      <div class="item">
+        <p>Select The Customer</p>
+        <select required name="customer">
+          <option value="0">NASA</option>
+          <option value="2">SpaceX</option>
+          <option value="1">Others</option>
+        </select>
+      </div>
+      
+      <div class="question">
+        <p>Misson Outcome</p>
+        <div class="question-answer">
+          <div>
+            <input type="radio" value="1" id="radio_3" name="misson_outcome"/>
+            <label for="radio_3" class="radio"><span>Success</span></label>
+          </div>
+          <div>
+            <input type="radio" value="0" id="radio_4" name="misson_outcome"/>
+            <label for="radio_4" class="radio"><span>Failure</span></label>
+          </div>
+        </div>
+       
+        <div class="btn-block">
+          <button type="submit" href="{{url_for('predictPage')}}">Submit</button>
+        </div>
+    </form>
+    </div>
+  </body>
+</html>
